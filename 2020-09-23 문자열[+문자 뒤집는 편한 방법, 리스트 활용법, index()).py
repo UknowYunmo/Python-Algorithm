@@ -82,14 +82,11 @@ S=input()
 count=len(S)
 for i in range(0,len(S)-1):
      for j in Cro_list:
-         try:
             if j==S[i]+S[i+1]+S[i+2]:
                 count-=2
-         except:
-             continue
-         else:
-             if j==S[i]+S[i+1]:
-                print("정신 나갈거 같아")
-                count-=1
+            else:
+                if j==S[i]+S[i+1]:
+                    print("정신 나갈거 같아")
+                    count-=1
 print(count)
 #아..모르겠다 내일 다시해야겠다
