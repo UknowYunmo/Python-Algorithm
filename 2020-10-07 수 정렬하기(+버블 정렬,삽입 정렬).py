@@ -31,7 +31,7 @@ N=int(input())
 list_box=[]
 for i in range(0,N):
     list_box.append(int(input()))
-for j in range(len(list_box)-1):
+for j in range(0,len(list_box)-1):
     minn = min(list_box[j:]) #j 부터 끝까지의 최소값 구하기
     index = list_box.index(minn) #그거의 인덱스
     list_box[index] = list_box[j]
