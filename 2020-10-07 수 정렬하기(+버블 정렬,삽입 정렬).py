@@ -29,7 +29,7 @@ print(list_box)
 # 3. 삽입 정렬이란걸 해보자 - 최소값을 계속 구해가면서 그 값을 입력시키기
 N=int(input())
 list_box=[]
-for i in range(N):
+for i in range(0,N):
     list_box.append(int(input()))
 for j in range(len(list_box)-1):
     minn = min(list_box[j:]) #j 부터 끝까지의 최소값 구하기
