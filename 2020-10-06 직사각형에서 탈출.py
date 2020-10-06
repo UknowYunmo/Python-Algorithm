@@ -5,7 +5,6 @@
 y는 1보다 크거나 같고, h-1보다 작거나 같은 자연수이다.
 """
 x,y,w,h=map(int,input().split())
-"""
 if x>=y:
     if y>=(h-y):
         print(h-y)
@@ -16,7 +15,6 @@ else:
         print(w-x)
     else:
         print(x)
-"""
 # 1차 시도 - 답은 잘 나오는거 같은데 어째 돌려보면 실패가 나옴. 모든 경우가 있는거 같은데 아마 허점이 있는듯
 box_list=[]
 box_list.append([x,y,(w-x),(h-y)])
