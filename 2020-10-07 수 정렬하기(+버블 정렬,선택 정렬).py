@@ -26,7 +26,7 @@ for j in range(0,N):
             list_box[k+1], list_box[k] = list_box[k], list_box[k+1]
 print(list_box)
 
-# 3. 삽입 정렬이란걸 해보자 - 최소값을 계속 구해가면서 그 값을 입력시키기
+# 3. 선택 정렬이란걸 해보자 - 최소값을 계속 구해가면서 그 값을 입력시키기
 N=int(input())
 list_box=[]
 for i in range(0,N):
