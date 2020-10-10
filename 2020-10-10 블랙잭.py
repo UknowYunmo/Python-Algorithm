@@ -19,6 +19,7 @@ card_list=[5, 6, 7, 8, 9]
 for i in range(0,4):
     for j in range(i+1,5):
         print(card_list[i], card_list[j])
+# 지금보면 정말 간단한 과정인데 이 생각을 하는 게 제일 어려웠음..ㅠㅠ
 
 # 2단계
 # 3개를 뽑는 모든 경우의 수를 출력해보자
