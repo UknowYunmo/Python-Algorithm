@@ -42,11 +42,23 @@ def find_B():
                 where_B.append(i)
                 where_B.append(j)
                 return
-def down_R(y):
-    for i in range(y+1,N):
-        if game[where_R[1]][i]=="#":
-            game[where_R[0]]=game[where_R[0]][0:where_R[0]]+"#"+game[where_R[0]][where_R[0]+1:]
-            #game[where_R[0]][where_R[1]]="#"
+def down_R():
+    a=where_R[0]
+    b=where_R[1]
+    for i in range(a+1,N):
+        if game[i][b]=="#":
+            game[a]=game[a][0:b]+"."+game[a][b+1:]
+            game[i-1]=game[i-1][0:b]+"R"+game[i-1][b+1:]
+            #game[where_R[1]-1][i]="R"
+            return
+    return
+def down_B():
+    a=where_B[0]
+    b=where_B[1]
+    for i in range(a+1,N):
+        if game[i][b]=="#":
+            game[a]=game[a][0:b]+"."+game[a][b+1:]
+            game[i-1]=game[i-1][0:b]+"B"+game[i-1][b+1:]
             #game[where_R[1]-1][i]="R"
             return
     return
@@ -54,7 +66,8 @@ def down_R(y):
 
 find_R()
 find_B()
-down_R(where_R[1])
+down_R()
+down_B()
 for i in range(0,N):
     print(game[i])
 print(game[where_R[0]][where_R[1]])
@@ -62,8 +75,7 @@ print(where_R[0])
 print(game[where_R[0]][0:where_R[0]]+"R"+game[where_R[0]][where_R[0]+1:])
 """
 와!!
-그래도 R을 내리는 기능은 이제 만들 수 있을거 같다!!!!!
-아직 미완성이지만
-원래 위치를 #으로 바꾸는 거까지는 성공
-이제
+그래도 R이랑 B를 내리는 down()을 잘 만들었다!!!!!!!!!!!!!!!!
+이제 나머지 기능을 만들자
+아직 갈 길이 멀지만 길이 보인다
 """
