@@ -70,9 +70,6 @@ down_R()
 down_B()
 for i in range(0,N):
     print(game[i])
-print(game[where_R[0]][where_R[1]])
-print(where_R[0])
-print(game[where_R[0]][0:where_R[0]]+"R"+game[where_R[0]][where_R[0]+1:])
 """
 와!!
 그래도 R이랑 B를 내리는 down()을 잘 만들었다!!!!!!!!!!!!!!!!
