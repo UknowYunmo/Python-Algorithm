@@ -24,55 +24,117 @@
 """
 N,M=map(int,input().split())
 game=[]
-where_R=[]
-where_B=[]
+where_R=[0,0]
+where_B=[0,0]
 for i in range(0,N):
     game.append(input())
-def find_R():
+def find():
     for i in range(0,N):
         for j in range(0,M):
             if game[i][j]=='R':
-                where_R.append(i)
-                where_R.append(j)
-                return
-def find_B():
+                where_R[0]=i
+                where_R[1]=j
     for i in range(0,N):
         for j in range(0,M):
             if game[i][j]=='B':
-                where_B.append(i)
-                where_B.append(j)
-                return
-def down_R():
+                where_B[0]=i
+                where_B[1]=j
+    return
+def down():
+    find()
     a=where_R[0]
     b=where_R[1]
+    c=where_B[0]
+    d=where_B[1]
     for i in range(a+1,N):
         if game[i][b]=="#":
             game[a]=game[a][0:b]+"."+game[a][b+1:]
             game[i-1]=game[i-1][0:b]+"R"+game[i-1][b+1:]
-            #game[where_R[1]-1][i]="R"
-            return
+            break
+    for i in range(c+1,N):
+        if game[i][d]=="#":
+            game[c]=game[c][0:d]+"."+game[c][d+1:]
+            game[i-1]=game[i-1][0:d]+"B"+game[i-1][d+1:]
+            break
     return
-def down_B():
-    a=where_B[0]
-    b=where_B[1]
-    for i in range(a+1,N):
+def right():
+    find()
+    a=where_R[0]
+    b=where_R[1]
+    c=where_B[0]
+    d=where_B[1]
+    for i in range(b+1,M):
+        if game[a][b+1]=="#":
+            break
+        if game[a][i]=="#":
+            game[a]=game[a][0:b]+"."+game[a][b+1:i-1]+"R"+game[a][i:]
+            break
+    for i in range(d+1,M):
+        if game[c][d+1]=="#":
+            break
+        if game[c][i]=="#":
+            game[c]=game[c][0:d]+"."+game[c][d+1:i-1]+"B"+game[c][i:]
+    return
+
+def left():
+    find()
+    a=where_R[0]
+    b=where_R[1]
+    c=where_B[0]
+    d=where_B[1]
+    for i in range(b-1,-1,-1):
+        if game[a][b-1]=="#":
+            break
+        if game[a][i]=="#":
+            game[a]=game[a][0:i+1]+"R"+game[a][i+2:b]+"."+game[a][b+1:]
+            break
+    for i in range(d-1,-1,-1):
+        if game[c][d-1]=="#":
+            break
+        if game[c][i]=="#":
+            game[c]=game[c][0:i+1]+"B"+game[c][i+2:d]+"."+game[c][d+1:]
+            break
+    return
+def up():
+    find()
+    a=where_R[0]
+    b=where_R[1]
+    c=where_B[0]
+    d=where_B[1]
+    for i in range(a-1,-1,-1):
         if game[i][b]=="#":
             game[a]=game[a][0:b]+"."+game[a][b+1:]
-            game[i-1]=game[i-1][0:b]+"B"+game[i-1][b+1:]
-            #game[where_R[1]-1][i]="R"
-            return
+            game[i+1]=game[i+1][0:b]+"R"+game[i+1][b+1:]
+            break
+    for i in range(a-1,-1,-1):
+        if game[i][d]=="#":
+            game[c]=game[c][0:d]+"."+game[c][d+1:]
+            game[i+1]=game[i+1][0:d]+"B"+game[i+1][d+1:]
+            break
     return
-
-
-find_R()
-find_B()
-down_R()
-down_B()
+down()
+down()
+print("------내려--------")
+for i in range(0,N):
+    print(game[i])
+print("------오른쪽--------")
+right()
+right()
+for i in range(0,N):
+    print(game[i])
+print("------왼쪽--------")
+left()
+left()
+for i in range(0,N):
+    print(game[i])
+print("------올려--------")
+up()
+up()
 for i in range(0,N):
     print(game[i])
 """
-와!!
-그래도 R이랑 B를 내리는 down()을 잘 만들었다!!!!!!!!!!!!!!!!
-이제 나머지 기능을 만들자
-아직 갈 길이 멀지만 길이 보인다
+왼쪽, 오른쪽, 아래, 위로 기울이는 함수를 만들었다!
+이제 남은 가지 문제는 R과 B가 같은 라인에 있을 때 하나는 사라져버린다는 점
+이걸 먼저 해결하고
+마지막으로 최선의 수를 구하는 방법을 구상하면 될 거 같다 
 """
