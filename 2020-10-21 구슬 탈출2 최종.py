@@ -6,8 +6,32 @@ game_end = False
 game_over = False
 for i in range(0, N):
     game.append(input())
+
 game2=game[:]
 
+player = []
+for a in range(1, 3):
+    for b in range(7, 9):
+        for c in range(1, 3):
+            for d in range(7, 9):
+                for e in range(1, 3):
+                    for f in range(7, 9):
+                        for g in range(1, 3):
+                            for h in range(7, 9):
+                                for i in range(1, 3):
+                                    for j in range(7, 9):
+                                        player.append([a, b, c, d, e, f, g, h, i, j])
+for a in range(7, 9):
+    for b in range(1, 3):
+        for c in range(7, 9):
+            for d in range(1, 3):
+                for e in range(7, 9):
+                    for f in range(1, 3):
+                        for g in range(7, 9):
+                            for h in range(1, 3):
+                                for i in range(7, 9):
+                                    for j in range(1, 3):
+                                        player.append([a, b, c, d, e, f, g, h, i, j])
 def find():
     for i in range(0, N):
         for j in range(0, M):
@@ -20,7 +44,6 @@ def find():
                 where_B[0] = i
                 where_B[1] = j
     return
-
 
 def down():
     global game_end
@@ -53,7 +76,6 @@ def down():
             break
     return
 
-
 def right():
     global game_end
     global game_over
@@ -83,7 +105,6 @@ def right():
             break
     return
 
-
 def left():
     global game_end
     global game_over
@@ -112,7 +133,6 @@ def left():
             game_over = True
             break
     return
-
 
 def up():
     global game_end
@@ -144,10 +164,7 @@ def up():
             game_over = True
             break
     return
-
 special_list = []
-
-
 def play():
     global game
     global game2
@@ -175,30 +192,6 @@ def play():
                 break
     return
 
-
-player = []
-for a in range(1, 3):
-    for b in range(7, 9):
-        for c in range(1, 3):
-            for d in range(7, 9):
-                for e in range(1, 3):
-                    for f in range(7, 9):
-                        for g in range(1, 3):
-                            for h in range(7, 9):
-                                for i in range(1, 3):
-                                    for j in range(7, 9):
-                                        player.append([a, b, c, d, e, f, g, h, i, j])
-for a in range(7, 9):
-    for b in range(1, 3):
-        for c in range(7, 9):
-            for d in range(1, 3):
-                for e in range(7, 9):
-                    for f in range(1, 3):
-                        for g in range(7, 9):
-                            for h in range(1, 3):
-                                for i in range(7, 9):
-                                    for j in range(1, 3):
-                                        player.append([a, b, c, d, e, f, g, h, i, j])
 play()
 if not special_list:
     print("-1")
